@@ -1,0 +1,50 @@
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/db
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ''
+    schema-generate: CREATE_DROP
+    dialect: MYSQL
+micronaut:
+  metrics:
+    export:
+      graphite:
+        enabled: true
+        host: localhost
+        port: 2004
+        step: PT1M
+      stackdriver:
+        enabled: true
+        projectId: ${STACKDRIVER_PROJECT_ID}
+        step: PT1M
+      prometheus:
+        enabled: true
+        descriptions: true
+        step: PT1M
+    enabled: true
+  security:
+    authentication: cookie
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: '"${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}"'
+    oauth2:
+      clients:
+        default:
+          client-id: ${OAUTH_CLIENT_ID}
+          client-secret: ${OAUTH_CLIENT_SECRET}
+          openid:
+            issuer: ${OAUTH_ISSUER}
+mongodb.uri: mongodb://${MONGO_HOST:localhost}:${MONGO_PORT:27017}
+r2dbc:
+  datasources:
+    default:
+      schema-generate: CREATE_DROP
+      dialect: MYSQL
+      url: r2dbc:mysql://localhost:3306/db
+      username: root
+      password: ''
+jpa.default.properties.hibernate.hbm2ddl.auto: update

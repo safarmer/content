@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: co.thatch.hub.svc.content
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, aws-v2-sdk, cache-caffeine, config-kubernetes, data, data-jpa, data-r2dbc, dekorate-jaeger, dekorate-kubernetes, dekorate-prometheus, gcp-cloud-trace, github-workflow-docker-registry, gradle, http-client, java, java-application, jdbc-hikari, jib, junit, kubernetes, liquibase, logback, lombok, management, micrometer, micrometer-graphite, micrometer-prometheus, micrometer-stackdriver, mockito, mongo-reactive, mysql, netty-server, r2dbc, reactor, readme, security, security-annotations, security-jwt, security-oauth2, shade, testcontainers, yaml]
